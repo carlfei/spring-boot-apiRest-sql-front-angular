@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>testing App</title>
+    <script
+            src="https://code.jquery.com/jquery-3.6.3.js"
+            integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+<form  method="post">
+  <div class="form-group">
+    <label >nombre curso</label>
+    <input type="text" class="form-control" id="curso1" aria-describedby="emailHelp" placeholder="Enter">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label>tema curso</label>
+    <input type="text" class="form-control" id="tema1" >
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="button" onclick="myFunction();" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+
+
+<script  type="text/javascript">
+    function myFunction() {
+        alert("hello");
+                var c1 = $("#curso1").val();
+                var c2= $("#tema1").val();
+
+                        var search = {
+                        'curso':c1,
+                        'tema':c2
+                        };
+
+                                    $.ajax({
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    url: 'http://127.0.0.1:8080/add',
+                                    data: search,
+                                        success: function (data) {
+                                        console.log("SUCCESS : ", data);
+                                        },
+                                        error: function (e) {
+                                        console.log("ERROR : ", e);
+                                        }
+                                            });
+                                            }
+
+    function myFunction2() {
+
+            search="";
+                        $.ajax({
+                        type: 'GET',
+                        dataType: 'json',
+                        url: 'http://127.0.0.1:8080/all',
+                        data: search,
+                            success: function (data) {
+                            document.getElementById("txtarea").innerHTML =JSON.stringify(data);
+                            $scope.names =JSON.stringify(data);
+                            console.log("SUCCESS : ", data);
+                            },
+
+                            error: function (e) {
+                            console.log("ERROR : ", e);
+                            }
+                                    })
+                                    }
+</script>
+
+<!--
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

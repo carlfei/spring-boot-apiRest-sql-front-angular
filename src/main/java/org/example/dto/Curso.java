@@ -1,4 +1,4 @@
-package org.example;
+package org.example.dto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,14 +6,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity // This tells Hibernate to make a table out of this class
-public class Alumno {
+public class Curso {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 
-	private String name;
-
 	private String curso;
+
+	private String tema;
 
 	public Integer getId() {
 		return id;
@@ -23,19 +23,19 @@ public class Alumno {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getCurso() {
 		return curso;
 	}
 
-	public void setCurso(String email) {
-		this.curso = email;
+	public void setCurso(String name) {
+		this.curso = name;
+	}
+
+	public String getTema() {
+		return tema;
+	}
+
+	public void setTema(String email) {
+		this.tema = email;
 	}
 }

@@ -33,22 +33,24 @@ public class MainController {
 	}
 
 	@GetMapping(path="/all")
-//	public @ResponseBody Iterable<Curso> getAllUsers() {
-	public String getAllUsers() {
+	//public @ResponseBody Iterable<Curso> getAllUsers() {
+	public @ResponseBody String getAllUsers() {
+	//public ResponseBody String getAllUsers() {
 		// This returns a JSON or XML with the users
 
 
 		curso = (List<Curso>) userRepository.findAll();
 
 		Gson gson = new Gson();
-		JSONObject jsonObject= new JSONObject();
-		jsonObject.put("data",curso);
-		String jsonString = gson.toJson(jsonObject);
+		String jsonString = gson.toJson(curso);
 
+		//	return 	userRepository.findAll();
+		//	return "{\"status\":\"Saved\"}";
 
-
-		return jsonString;
+		//return	"\"+userRepository.findAll();
+		return jsonString.toString();
 	}
+
 	
 	@GetMapping(path="/plantilla")
 	public String getUsers() {

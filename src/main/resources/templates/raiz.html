@@ -1,3 +1,5 @@
+
+<!--
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -30,12 +32,168 @@
   <button type="button" onclick="myFunction();" class="btn btn-primary">Submit</button>
 </form>
 
+-->
 
 
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>testing App</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 
+    <script
+            src="https://code.jquery.com/jquery-2.2.4.js"
+            integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+            crossorigin="anonymous"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <h2>curso_spring_boot</h2>
+
+    <form>
+        <div class="form-group">
+            <div class="col-xs-2">
+                <label for="ex1">curso</label>
+                <input class="form-control" id="curso1" type="text">
+            </div>
+            <br>
+            <div class="col-xs-2">
+                <label for="ex1">tema</label>
+                <input class="form-control" id="tema1" type="text">
+            </div>
+
+
+        </div>
+        <button type="button" onclick="myFunction();" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<!--
+<div class="container">
+    <h2>Form control: textarea</h2>
+    <p>The form below contains a textarea for comments:</p>
+    <form  method="get">
+        <div class="form-group">
+            <label Comment:</label>
+            <textarea class="form-control" rows="5" id="txtarea"></textarea>
+        </div>
+        <button type="button" onclick="myFunction2();" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+-->
+<center>
+<form  method="get">
+<!--
+    <div ng-app="myApp" ng-controller="customersCtrl">
+
+    <ul>
+        <li ng-repeat="x in myData">
+            {{x.curso}}
+            {{x.tema}}
+        </li>
+    </ul>
+
+</div>
+-->
+
+    <table ng-app="myApp" ng-controller="customersCtrl" border="1">
+        <tr> <td><p>curso<p></td>
+            <td><p>tema</p></td></tr>
+        <tr ng-repeat="x in myData">
+            <td>{{x.curso}}</td>
+            <td>{{x.tema}}</td>
+        </tr>
+    </table>
+
+
+    <button type="button" class="btn btn-primary">Submit</button>
+</form>
+    </center>
 
 <script  type="text/javascript">
+    var app = angular.module('myApp', []);
+    app.controller('customersCtrl', function($scope, $http) {
+        $http.get("http://127.0.0.1:8080/all").then(function (success) {
+            //$scope.myData = response.data.records;
+            $scope.myData = success.data;
+            //console.log(myData);
+        });
+    });
+
+//JSON.stringify
+
+function myFunction() {
+
+    var c1 = $("#curso1").val();
+    var c2= $("#tema1").val();
+    var search = {
+	   'curso':c1,
+	   'tema':c2
+			};
+
+	   $.ajax({
+	        type: 'POST',
+	        dataType: 'json',
+	        url: 'http://127.0.0.1:8080/add',
+	       	data: search,
+
+	  			     success: function (data) {
+
+			         console.log("SUCCESS : ", data);
+			       			},
+			        error: function (e) {
+						 console.log("ERROR : ", e);
+			        }
+	    });
+
+
+}
+
+
+function myFunction2() {
+
+/*
+	search="";
+	   $.ajax({
+	        type: 'POST',
+	        dataType: 'json',
+	        url: 'http://127.0.0.1:8080/all',
+	       	data: search,
+
+  			    success: function (data) {
+						document.getElementById("txtarea").innerHTML =JSON.stringify(data);
+					//	document.getElementById("txtarea").innerHTML = data;
+
+					//	$scope.names =JSON.stringify(data);
+		         		console.log("SUCCESS : ", data);
+		       			},
+		        error: function (e) {
+					 console.log("ERROR : ", e);
+		        }
+	    });
+
+    */
+
+
+
+}
+
+
+
+
+
+
+
+  /*
+
     function myFunction() {
         alert("hello");
                 var c1 = $("#curso1").val();
@@ -79,6 +237,11 @@
                             }
                                     })
                                     }
+
+
+*/
+
+
 </script>
 
 <!--

@@ -1,24 +1,15 @@
 <!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>testing App</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-
 <body>
-
-<div class="jumbotron jumbotron-fluid bg-primary">
-
-    <div class="container">
-        <h1 class="display-4">testing <span th:text="${id}"></span></h1>
-        <p class="lead">testing page.</p>
-    </div>
-
-</div>
-
+<h1>Form</h1>
+<form action="#" th:action="@{/alumnos}" th:object="${alumno}" method="post">
+    <p>Nombre alumno: <input type="text" th:field="*{name}" /></p>
+    <p>Email alumno: <input type="text" th:field="*{email}" /></p>
+    <p><input type="submit" value="Submit" /></p>
+</form>
 </body>
 </html>

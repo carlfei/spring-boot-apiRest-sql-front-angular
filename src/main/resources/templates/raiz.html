@@ -40,21 +40,49 @@
     </form>
 </div>
 
-<center>
-<form  method="get">
 
-    <table ng-app="myApp" ng-controller="customersCtrl" border="1">
+
+
+
+    <center>
+<!--
+    <iframe src="http://localhost:63342/spring-boot-sql-front/accessing-data-mysql-complete/templates/react.html?_ijt=f1qni5gpuag08s36lur4cs8cak&_ij_reload=RELOAD_ON_SAVE"
+            height="200" width="300" title="Iframe Example"></iframe>
+
+    -->
+
+    <form>
+
+
+<!--
+     <table ng-app="myApp" ng-controller="customersCtrl" border="1">
         <tr> <td><p>curso<p></td>
             <td><p>tema</p></td></tr>
         <tr ng-repeat="x in myData">
             <td>{{x.curso}}</td>
             <td>{{x.tema}}</td>
         </tr>
-    </table>
+     </table>
+     -->
+    </form>
 
 
-    <button type="button"  class="btn btn-primary">Submit</button>
-</form>
+
+
+        <div ng-app="myApp" ng-controller="customersCtrl">
+           Tabla curso:
+            <table  border="1">
+                <tr> <td><p>curso<p></td>
+                    <td><p>tema</p></td></tr>
+                <tr ng-repeat="x in myData">
+                    <td>{{x.curso}}</td>
+                    <td>{{x.tema}}</td>
+                </tr>
+            </table>
+             <br />
+            <br />
+            <input id="mycontroller" type="button" value="Submit" ng-click="ButtonClick()" />
+        </div>
     </center>
 
 <script  src="/js/main.js" type="text/javascript">

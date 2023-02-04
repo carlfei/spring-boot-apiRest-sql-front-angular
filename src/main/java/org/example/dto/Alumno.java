@@ -1,12 +1,11 @@
 package org.example.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-@Entity // This tells Hibernate to make a table out of this class
+@Entity(name="alumnos")
 public class Alumno {
+	@OneToOne
+	private Curso miCurso;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;

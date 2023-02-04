@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import com.google.gson.Gson;
+import org.example.dto.Alumno;
 import org.example.dto.Curso;
 import org.example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller	// This means that this class is a Controller
-//@RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
+@Controller
 public class MainController {
 	@Autowired
 	private UserRepository userRepository;
@@ -27,6 +27,15 @@ public class MainController {
 			userRepository.save(n);
 			return "Saved";
 	}
+
+
+
+    @PostMapping(path="/alumnos") // Map ONLY POST Requests
+    public void metodoAlumnos (Alumno alumnoRecibido) {
+
+    }
+
+
 
 	@GetMapping(path="/all")
 	//public @ResponseBody Iterable<Curso> getAllUsers() {

@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/curso")
+//@RequestMapping("/curso")
 public class MainController {
 	@Autowired
 	private UserRepository userRepository;
@@ -49,7 +49,7 @@ public class MainController {
 		return jsonString.toString();
 	}
 
-	
+	@CrossOrigin(origins = "http://127.0.0.1:8080")
 	@GetMapping(path="/plantilla")
 	public String getUsers() {
 

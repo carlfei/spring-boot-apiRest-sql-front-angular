@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class MainController {
@@ -53,6 +54,11 @@ public class MainController {
 
 		return "raiz";
 	}
-	
+
+    @GetMapping("/id/{id}")
+    public @ResponseBody Optional<Curso> getCurso(@PathVariable(value = "id") Integer id) {
+
+      return   userRepository.findById(id);
+    }
 	
 }

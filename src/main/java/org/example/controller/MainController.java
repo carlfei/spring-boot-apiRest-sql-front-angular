@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@RequestMapping("/curso")
 public class MainController {
 	@Autowired
 	private UserRepository userRepository;
@@ -56,7 +57,7 @@ public class MainController {
 	}
 
     @GetMapping("/id/{id}")
-    public @ResponseBody Optional<Curso> getCurso(@PathVariable(value = "id") Integer id) {
+    public @ResponseBody Optional<Curso> getCursos(@PathVariable(value = "id") Integer id) {
 
       return   userRepository.findById(id);
     }

@@ -13,7 +13,17 @@ public class Curso {
 
 	private String curso;
 
+
+
 	private String tema;
+/*
+	public Curso(Integer id, String tema, String curso) {
+		this.id = id;
+		this.tema = tema;
+		this.curso = curso;
+	}
+
+	*/
 
 	public Integer getId() {
 		return id;

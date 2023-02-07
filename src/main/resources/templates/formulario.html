@@ -6,9 +6,12 @@
 </head>
 <body>
 <h1>Form</h1>
-<form action="#" th:action="@{/alumnos}" th:object="${alumno}" method="post">
-    <p>Nombre alumno: <input type="text" th:field="*{name}" /></p>
-    <p>Email alumno: <input type="text" th:field="*{email}" /></p>
+<form action="#" th:action="@{/formularioEnvio}" th:object="${curso}" method="post">
+
+    <p> curso: <input type="text" th:field="*{id}" /></p>
+    <p>id curso: <input type="text" th:field="*{curso}" /></p>
+    <p>Tema curso: <input type="text" th:field="*{tema}" /></p>
+
     <p><input type="submit" value="Submit" /></p>
 </form>
 </body>

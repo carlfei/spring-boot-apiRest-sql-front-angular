@@ -1,19 +1,22 @@
 package org.example.controller;
 
+
 import com.google.gson.Gson;
 import org.example.dto.Alumno;
 import org.example.dto.Curso;
 import org.example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 //@RequestMapping("/curso")
-public class MainController {
+public class  MainController {
 	@Autowired
 	private UserRepository userRepository;
 
@@ -61,5 +64,37 @@ public class MainController {
 
       return   userRepository.findById(id);
     }
-	
+
+	@GetMapping("/formulario")
+	//public String showForm(Model model) {
+	public String showForm(@ModelAttribute("curso") Curso curso) {
+
+	//Curso curso = new Curso();
+		//model.addAttribute("curso", curso);
+
+
+		/*
+		List<String> listProfession = Arrays.asList("Developer", "Tester", "Architect");
+		model.addAttribute("listProfession", listProfession);
+			*/
+		return "formulario";
+	}
+
+
+
+	@PostMapping("/formularioEnvio")
+	//public String showForm(Model model) {
+	public String getForm(@ModelAttribute("curso") Curso curso) {
+		//Curso curso = new Curso();
+		//model.addAttribute("curso", curso);
+		/*
+		List<String> listProfession = Arrays.asList("Developer", "Tester", "Architect");
+		model.addAttribute("listProfession", listProfession);
+			*/
+		return "formulario";
+	}
+
+
+
+
 }

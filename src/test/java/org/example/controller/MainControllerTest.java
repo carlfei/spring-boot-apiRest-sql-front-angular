@@ -30,13 +30,25 @@ public class MainControllerTest {
 
     @Test
     public void getCursos() throws Exception {
-
-        Curso curso = new Curso();
+/*
+        Curso curso = new Curso(1,"primero","mates");
         curso.setId(1);
-        given(userRepository.findById(1)).willReturn(Optional.of(curso));
-        mvc.perform(get("/")
+        given(userRepository.findById(1)).willReturn(curso));
+        mvc.perform(get("/curso")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.tema").value("aa"));
+                .andExpect(jsonPath("$.tema").value("mates"));
+        */
+        Curso curso = new Curso();
+        curso.setTema("mates");
+        given(userRepository.findById(1)).willReturn(Optional.of(curso));
+        mvc.perform(get("/curso")
+                        .contentType(MediaType.APPLICATION_JSON))
+                          .andExpect(status().isOk())
+                             .andExpect(jsonPath("$.tema").value("mates"));
      }
+
+
+
+
 }

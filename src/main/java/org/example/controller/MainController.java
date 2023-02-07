@@ -14,8 +14,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
-//@RequestMapping("/curso")
+@RestController
+@RequestMapping("/curso")
 public class  MainController {
 	@Autowired
 	private UserRepository userRepository;
@@ -60,23 +60,16 @@ public class  MainController {
 	}
 
     @GetMapping("/id/{id}")
-    public @ResponseBody Optional<Curso> getCursos(@PathVariable(value = "id") Integer id) {
+	public @ResponseBody Optional<Curso> getCursos(@PathVariable(value = "id") Integer id) {
 
       return   userRepository.findById(id);
     }
+
 
 	@GetMapping("/formulario")
 	//public String showForm(Model model) {
 	public String showForm(@ModelAttribute("curso") Curso curso) {
 
-	//Curso curso = new Curso();
-		//model.addAttribute("curso", curso);
-
-
-		/*
-		List<String> listProfession = Arrays.asList("Developer", "Tester", "Architect");
-		model.addAttribute("listProfession", listProfession);
-			*/
 		return "formulario";
 	}
 

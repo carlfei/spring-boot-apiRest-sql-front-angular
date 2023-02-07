@@ -1,8 +1,15 @@
 package org.example.dto;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Entity(name="alumnos")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+//@Entity(name="alumnos")
 public class Alumno {
 	@OneToOne
 	private Curso miCurso;
@@ -14,27 +21,4 @@ public class Alumno {
 
 	private String curso;
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getCurso() {
-		return curso;
-	}
-
-	public void setCurso(String email) {
-		this.curso = email;
-	}
 }

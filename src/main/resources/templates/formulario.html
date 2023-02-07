@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Form</h1>
-<form action="#" th:action="@{/formularioEnvio}" th:object="${curso}" method="post">
+<form action="#" th:action="@{/curso/formularioEnvio}" th:object="${curso}" method="post">
 
     <p> curso: <input type="text" th:field="*{id}" /></p>
     <p>id curso: <input type="text" th:field="*{curso}" /></p>

@@ -27,16 +27,14 @@ public class UserRepositoryTest{
 
     @Test
     public void repositoryTest(){
-        String temaCurso = "primer";
-        Curso curso = new Curso();
-        curso.setCurso("primer");
-        curso.setTema("mates");
+        String temaCurso = "mates";
+        Curso curso = new Curso(1,"primer","mates");
 
         testEntityManager.persist(curso);
         testEntityManager.flush();
 
-        Curso  encuentra;
-        encuentra = userRepository.findByTema(curso.getTema());
+
+        Curso encuentra = userRepository.findByTema(curso.getTema());
 
         Assert.assertEquals(encuentra.getTema(),
                 temaCurso);

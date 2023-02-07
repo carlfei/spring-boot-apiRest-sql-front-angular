@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping("/curso")
 public class  MainController {
 	@Autowired
@@ -80,10 +80,7 @@ public class  MainController {
 	public String getForm(@ModelAttribute("curso") Curso curso) {
 		//Curso curso = new Curso();
 		//model.addAttribute("curso", curso);
-		/*
-		List<String> listProfession = Arrays.asList("Developer", "Tester", "Architect");
-		model.addAttribute("listProfession", listProfession);
-			*/
+
 		return "formulario";
 	}
 

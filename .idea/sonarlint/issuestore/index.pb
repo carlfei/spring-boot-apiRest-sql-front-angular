@@ -1,5 +1,5 @@
 
-Y
-)src/main/java/org/example/dto/Alumno.java,7\3\73662d47d597bde6b97b6b4dc3f87a91b73bab7c
-X
-(src/main/java/org/example/dto/Curso.java,3\1\31ad0724217ca498f85513d7bb510ccaab940fa7
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+w
+G.idea/sonarlint/issuestore/7/3/73662d47d597bde6b97b6b4dc3f87a91b73bab7c,3\8\38a4e4b03187dc10e6ae43c68667609ac5236e2e

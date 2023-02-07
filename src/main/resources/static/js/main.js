@@ -11,7 +11,7 @@ function myFunction() {
 	   $.ajax({
 	        type: 'POST',
 	        dataType: 'json',
-	        url: 'http://127.0.0.1:8080/add',
+	        url: 'http://127.0.0.1:8080/curso/add',
 	       	data: search,
 
 	  			     success: function (data) {
@@ -45,7 +45,7 @@ var app = angular.module('myApp', []);
  var app = angular.module('myApp', [])
     app.controller('customersCtrl', function ($scope, $http, $window) {
         $scope.ButtonClick = function () {
-              $http.get("http://127.0.0.1:8080/all").then(function (success) {
+              $http.get("http://127.0.0.1:8080/curso/all").then(function (success) {
                       //$scope.myData = response.data.records;
                       $scope.myData = success.data;
 
